@@ -1,0 +1,23 @@
+{
+    "name": "rehmatworks/domain",
+    "description": "Monitor domains for expiry, check domain age and more.",
+    "keywords": [
+        "domain", "whois", "domain expiry", "domain age"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rehmat Alam",
+            "email": "contact@rehmat.works"
+        }
+    ],
+    "require": {
+        "nesbot/carbon": "^1.15|^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "RehmatWorks\\": "src"
+        }
+    }
+}
