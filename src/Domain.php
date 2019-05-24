@@ -570,10 +570,8 @@ class Domain {
     {
         $whoisServers = $this->WhoisServers;
         $domain = trim($domain);
-        if(substr(strtolower($domain), 0, 7) == "http://") {
-            $domain = substr($domain, 7);
-        }
-
+        $disallowed = ['http://', 'https://'];
+        $domain = str_replace($disallowed, ['', ''], $domain);
         if(substr(strtolower($domain), 0, 4) == "www.") {
             $domain = substr($domain, 4);
         }
