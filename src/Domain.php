@@ -1,5 +1,5 @@
 <?php
-namespace RehmatWorks;
+namespace RehmatWorks\Domain;
 use Carbon\Carbon;
 use Exception, ErrorException;
 
@@ -638,7 +638,7 @@ class Domain {
         fclose($fp);
 
         $res = "";
-        if ((strpos(strtolower($out), "error") === FALSE) && (strpos(strtolower($out), "not allocated") === FALSE)) {
+        if((strpos(strtolower($out), "error") === FALSE) && (strpos(strtolower($out), "not allocated") === FALSE)) {
             $rows = explode("\n", $out);
             foreach ($rows as $row) {
                 $row = trim($row);
