@@ -557,15 +557,6 @@ class Domain {
         ],
     ];
 
-    public function __construct()
-    {
-        set_error_handler([$this, 'errorHandler']);
-    }
-
-    public function errorHandler($errno, $errstr, $errfile, $errline) {
-        throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
-    }
-
     public function expiry($domain)
     {
         $whoisServers = $this->WhoisServers;
@@ -621,12 +612,7 @@ class Domain {
     {
         $port = 43;
         $timeout = 10;
-        try {
-            $fp = @fsockopen($whoisserver, $port, $errno, $errstr, $timeout) or false;
-        } catch(Exception $e)
-        {
-            return false;
-        }
+        $fp = @fsockopen($whoisserver, $port, $errno, $errstr, $timeout) or false;
         if(!$fp) {
             return false;
         }
